@@ -1,20 +1,349 @@
+Aqui está o código HTML completo da aplicação em um único arquivo, estilizado com Tailwind CSS e contendo a interatividade dos botões e do gerenciador de tarefas:
+
+```html
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meu primeiro Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Acadêmico - Gustavo Alex Nimet</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
 </head>
-<body>
-    <h1>
-        Meu primeiro código em HTML
-    </h1>
-    <hr>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Itaque explicabo ab nisi voluptate illum quos pariatur.
-        Nihil repellendus id error! Soluta voluptate amet fuga temporibus, error a saepe odit adipisci?
-    </p>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Header / Navbar -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="bg-blue-600 p-2 rounded-lg text-white">
+          <i data-lucide="user-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-lg leading-tight">Gustavo Alex Nimet</h1>
+          <p class="text-xs text-slate-400">Aprendizagem Industrial Assistente Administrativo</p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center space-x-4 text-xs text-slate-300">
+        <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">UC: TI e Comunicação</span>
+        <span class="bg-slate-800 px-3 py-1 rounded-full border border-slate-700">Prof. Alexandre dos Santos</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- Header Mobile Info Card -->
+    <div class="md:hidden bg-slate-900 text-slate-300 p-4 rounded-xl border border-slate-800 text-xs space-y-1">
+      <p><strong class="text-white">Turma:</strong> AIAA - Assistente Administrativo</p>
+      <p><strong class="text-white">UC:</strong> Introdução à Tecnologia da Informação e Comunicação</p>
+      <p><strong class="text-white">Professor:</strong> Alexandre dos Santos</p>
+    </div>
+
+    <!-- Intro Card -->
+    <section class="bg-gradient-to-r from-blue-900 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div class="relative z-10 max-w-3xl space-y-4">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Perfil Pessoal & Profissional
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Quem sou eu?</h2>
+        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+          "Eu sou Gustavo, aluno da Aprendizagem. O meu maior ponto forte é a minha produtividade. Sempre tento finalizar meu trabalho da maneira mais rápida e eficaz possível, sou uma pessoa muito comprometida e pontual."
+        </p>
+      </div>
+    </section>
+
+    <!-- Grid: Análise SWAT Pessoal -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Pontos Fortes -->
+      <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-lg">
+            <i data-lucide="zap" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Pontos Fortes & Qualidades</h3>
+        </div>
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+            <span><strong>Produtividade e Eficiência:</strong> Foco em entregar resultados rápidos sem perder a qualidade.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+            <span><strong>Comprometimento e Pontualidade:</strong> Cumprimento rigoroso de horários e prazos estabelecidos.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+            <span><strong>Espírito de Equipe:</strong> Disposição para agregar produtividade e valor ao time.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Oportunidades de Melhoria -->
+      <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="p-2.5 bg-amber-50 text-amber-600 rounded-lg">
+            <i data-lucide="target" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Pontos em Desenvolvimento</h3>
+        </div>
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i>
+            <span><strong>Foco Contínuo:</strong> Trabalhando para evitar distrações em tarefas de longa duração.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i>
+            <span><strong>Ambição e Engajamento:</strong> Buscando aumentar o interesse e motivação em diversas áreas.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i>
+            <span><strong>Estratégia de Aprendizado:</strong> Uso de listas de tarefas e recompensas para manter o engajamento.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Atitudes e Comportamento -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <i data-lucide="compass" class="w-5 h-5 text-blue-600"></i> Como eu me comporto (Atitudes)
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Responsabilidade -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900">Responsabilidade</h3>
+          <p class="text-xs text-slate-500 font-medium">Ações sem necessidade de lembretes</p>
+          <p class="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+            Mantém pontualidade em entregas de tarefas, rotina doméstica organizada e alto nível de compromisso com a equipe de futebol nos treinos e jogos.
+          </p>
+        </div>
+
+        <!-- Iniciativa -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+            <i data-lucide="rocket" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900">Iniciativa / Proatividade</h3>
+          <p class="text-xs text-slate-500 font-medium">Antecipação de necessidades</p>
+          <p class="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+            Organizado e consciente de suas obrigações. Antecipa tarefas cotidianas no ambiente familiar e acadêmico sem esperar por solicitações.
+          </p>
+        </div>
+
+        <!-- Resiliência -->
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-bold text-slate-900">Resiliência</h3>
+          <p class="text-xs text-slate-500 font-medium">Resolução de problemas</p>
+          <p class="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+            Avalia o tamanho dos problemas com praticidade. Resolve com autonomia as demandas cabíveis ou busca auxílio colaborativo para desafios complexos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Tool: To-Do & Engagement List -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <i data-lucide="check-square" class="w-5 h-5 text-blue-600"></i> Plano Prático de Produtividade
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">
+            Ferramenta para aplicar a estratégia de alternar obrigações com momentos de satisfação.
+          </p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span id="task-counter" class="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-600 rounded-full">
+            0 tarefas concluídas
+          </span>
+        </div>
+      </div>
+
+      <!-- Add Task Form -->
+      <form id="todo-form" class="flex flex-col sm:flex-row gap-3">
+        <input 
+          type="text" 
+          id="task-input" 
+          placeholder="Adicionar tarefa ou atividade de lazer..." 
+          class="flex-1 px-4 py-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          required
+        />
+        <select 
+          id="task-type" 
+          class="px-4 py-2.5 text-sm border border-slate-300 rounded-lg bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="meta">Meta / Obrigação</option>
+          <option value="lazer">Entretenimento / Lazer</option>
+        </select>
+        <button 
+          type="submit" 
+          class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-2 shrink-0"
+        >
+          <i data-lucide="plus" class="w-4 h-4"></i> Adicionar
+        </button>
+      </form>
+
+      <!-- Task List Container -->
+      <div class="space-y-2 max-h-80 overflow-y-auto custom-scrollbar pr-1" id="task-list">
+        <!-- Tasks will be inserted here dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">
+      <p>Desenvolvido para a disciplina de Introdução à Tecnologia da Informação e Comunicação</p>
+      <p class="mt-1">SENAI - Aprendizagem Industrial Assistente Administrativo</p>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Task Manager App State & Logic
+    const initialTasks = [
+      { id: 1, text: "Finalizar relatório de TI com rapidez e eficácia", type: "meta", completed: false },
+      { id: 2, text: "Manter compromisso e treino com time de futebol", type: "meta", completed: true },
+      { id: 3, text: "Lista de coisas que gosto de fazer (entretenimento)", type: "lazer", completed: false },
+      { id: 4, text: "Organização diária e tarefas domésticas", type: "meta", completed: true }
+    ];
+
+    let tasks = [...initialTasks];
+
+    const taskForm = document.getElementById('todo-form');
+    const taskInput = document.getElementById('task-input');
+    const taskType = document.getElementById('task-type');
+    const taskList = document.getElementById('task-list');
+    const taskCounter = document.getElementById('task-counter');
+
+    function renderTasks() {
+      taskList.innerHTML = '';
+      
+      if (tasks.length === 0) {
+        taskList.innerHTML = `
+          <div class="text-center py-8 text-slate-400 text-sm">
+            Nenhuma tarefa cadastrada. Adicione uma nova meta acima!
+          </div>
+        `;
+      } else {
+        tasks.forEach(task => {
+          const item = document.createElement('div');
+          item.className = `flex items-center justify-between p-3.5 rounded-lg border ${
+            task.completed ? 'bg-slate-50 border-slate-200 text-slate-400' : 'bg-white border-slate-200 text-slate-800'
+          } transition-all`;
+
+          const isMeta = task.type === 'meta';
+
+          item.innerHTML = `
+            <div class="flex items-center space-x-3 overflow-hidden">
+              <button 
+                onclick="toggleTask(${task.id})"
+                class="w-5 h-5 rounded border flex items-center justify-center transition-colors ${
+                  task.completed ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300 hover:border-blue-500'
+                }"
+              >
+                ${task.completed ? '<i data-lucide="check" class="w-3.5 h-3.5"></i>' : ''}
+              </button>
+              <span class="text-sm ${task.completed ? 'line-through' : 'font-medium'} truncate">
+                ${task.text}
+              </span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wider shrink-0 ${
+                isMeta ? 'bg-blue-100 text-blue-700' : 'bg-emerald-100 text-emerald-700'
+              }">
+                ${isMeta ? 'Meta' : 'Lazer'}
+              </span>
+            </div>
+            <button 
+              onclick="deleteTask(${task.id})"
+              class="text-slate-400 hover:text-red-500 p-1 transition-colors ml-2"
+              title="Excluir"
+            >
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          `;
+          taskList.appendChild(item);
+        });
+      }
+
+      // Update counters
+      const completedCount = tasks.filter(t => t.completed).length;
+      taskCounter.textContent = `${completedCount} de ${tasks.length} concluídas`;
+
+      // Re-initialize dynamic icons
+      lucide.createIcons();
+    }
+
+    function addTask(e) {
+      e.preventDefault();
+      const text = taskInput.value.trim();
+      if (!text) return;
+
+      const newTask = {
+        id: Date.now(),
+        text: text,
+        type: taskType.value,
+        completed: false
+      };
+
+      tasks.unshift(newTask);
+      taskInput.value = '';
+      renderTasks();
+    }
+
+    function toggleTask(id) {
+      tasks = tasks.map(task => 
+        task.id === id ? { ...task, completed: !task.completed } : task
+      );
+      renderTasks();
+    }
+
+    function deleteTask(id) {
+      tasks = tasks.filter(task => task.id !== id);
+      renderTasks();
+    }
+
+    taskForm.addEventListener('submit', addTask);
+
+    // Initial render
+    renderTasks();
+  </script>
 </body>
 </html>
+
+```
